@@ -13,9 +13,12 @@ tasks:
   container-down:
     cmds:
       - docker-compose down --remove-orphans --volumes
-  migration-up:
+  migrate-up:
     cmds:
       - migrate -path db/migrations -database $APP_DB_URL -verbose up
-  migration-down:
+  migrate-down:
     cmds:
       - migrate -path db/migrations -database $APP_DB_URL -verbose down -all
+  sqlc-generate:
+    cmds:
+      - sqlc generate
